@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block head %}
+<h1>IRIS-FlaskBlog</h1>
+<p>Create Post</p>
+{% endblock %}
+{% block content%}
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 mx-auto">
+      <div class="card">
+        <h5 class="card-header form-label-font">Create Post</h5>
+        <div class="card-body">
+          <form method="POST" id="myForm">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label class="form-label-font">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  id="title"
+                  required
+                  value="{{ request.form['title'] }}"          
+                  data-validation-required-message="Please enter a title."
+                />              
+              </div>
+            </div>
+         
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label class="form-label-font">Content</label>
+                <textarea
+                  rows="10"
+                  class="form-control"
+                  name="content"
+                  id="content"
+                  required
+                  value="{{ request.form['content'] }}"           
+                  data-validation-required-message="Please enter a message."
+                ></textarea>
+                </div>
+            </div>
+            
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label class="form-label-font">Tags</label>
+                <div class="wrapper">
+                  <div class="content">                 
+                  <ul id="tags_ul"><input type="text" class="form-label-font" name = "tags" id="tags" spellcheck="false"></ul>
+                  <p class="no-bottom-margin"><small>Press enter or add a comma after each tag</small></p>
+                </div>   
+              </div>           
+               </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls invisible">
+              <input
+                  type="text"
+                  class="form-control"
+                  name="tagval"
+                  id="tagval"             
+                />         
+              </div>
+            </div>
+       
+            <div class="form-group">
+              <div align="center">
+              <button type="submit" class="btn btn-primary" id="sendMessageButton">
+                Save Post
+              </button>
+              <a href="/index"><button type="button" class="btn btn-secondary">Back</button></a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block script %}
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='tags.js')}}"
+    ></script>
+    <script>
+       document.getElementById("tags").onkeypress = function(e) {
+       var key = e.charCode || e.keyCode || 0;     
+        if (e.keyCode == 13) {
+         e.preventDefault();
+       }
+      }     
+   </script>
+  {% endblock %}  
+</div>
+

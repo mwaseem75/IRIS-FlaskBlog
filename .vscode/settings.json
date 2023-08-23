@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+    
+        "Dockerfile*": "dockerfile",
+        "iris.script": "objectscript"
+      },
+    "objectscript.conn" :{
+      "ns": "%SYS",
+      "username": "SuperUser",
+      "password": "SYS",
+      "docker-compose": {
+        "service": "iris",
+        "internalPort": 52773
+      },
+      "links": {
+        "Climate Change Home": "http://localhost:4040",
+        "Management Portal": "http://localhost:52775/csp/sys/UtilHome.csp"
+      },
+      "active": true,
+      "server": "default~iris"
+    },
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none"
+
+}

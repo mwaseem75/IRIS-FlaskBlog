@@ -1,0 +1,4 @@
+flask>=2.0.1
+flask_sqlalchemy
+flask_login
+sqlalchemy-iris

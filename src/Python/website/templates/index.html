@@ -1,0 +1,108 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block head %}
+<h1>IRIS-FlaskBlog</h1>
+<p>Home Page</p>
+{% endblock %}
+{% block content %}
+<div class="container page">
+    <div class="row">
+      <!-- Main view - contains tabs & article list -->
+      <div class="col-md-9">
+            <!-- Tabs for toggling between feed, article lists -->
+            <div class="feed-toggle">
+                    <ul class="nav nav-pills outline-active">
+                        
+                       <li class="nav-item">
+                          <a href="/index" class="nav-link {% if feed==1 %} active {% endif %}">
+                              Global Feed
+                          </a>
+                        </li> 
+                        <li class="nav-item"  {% if feed==1 or feed==3 %} style="display: none;" {% endif %}>
+                          <a href="#"  class="nav-link {% if feed==2 %} active {% endif %}">
+                              {{feed_user}} Feed
+                          </a>
+                        </li>
+                        <li class="nav-item"  {% if feed==1 or feed==2 %} style="display: none;" {% endif %}>
+                          <a href="#"  class="nav-link {% if feed==3 %} active {% endif %}">
+                              #{{feed_tag}} 
+                          </a>
+                        </li>        
+                    </ul>
+            </div><!--<div class="feed-toggle">-->        
+            <!-- List the current articles -->
+            {% for post in pages.items %}
+                <article-preview article="article">
+                        <div class="article-preview">
+                        <article-meta >
+                            <div class="article-meta">
+                                <a href="#">
+                                    <img src="{{ url_for('static',filename='post.png') }}">
+                                </a>
+                                <div class="info">
+                                   <a class="author"  href="/posts/{{ post }}">{{ post }}</a>
+                                   <span class="date" >{{ post.date_created.strftime('%B %d, %Y') }}</span>
+                                </div>
+                                <favorite-btn class="pull-xs-right">
+                                    <button class="btn disabled btn-sm btn-outline-primary">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                    </svg></i> {{ post.likes|length }} </span>
+                                    </button>
+                                </favorite-btn>                             
+                            </div>
+                         </article-meta>
+                        <a class="preview-link" href="{{ url_for('views.post', id=post.id) }}">
+                            <h1>{{ post.title }}</h1>
+                            <p>{{ post.content | truncate(300) }}</p>
+                            <span>Read more...</span>
+                           
+                            <ul class="tag-list">
+                              {% for tag in post.tags %}
+                                 <li class="tag-default tag-pill tag-outline">  {{ tag }} </li>
+                              {% endfor %}
+                            </ul>
+                        </a> 
+                    </div>
+                </article-preview>
+                {% endfor %}
+      </div> <!--col=md-9-->
+      <!-- Sidebar where popular tags are listed -->
+      <div class="col-md-3">
+    
+        <div class="sidebar">
+          <div align="center">
+            <a href="/create-post"
+              ><button type="button" class="btn btn-primary">
+                Create a Post
+              </button></a>
+          </div>    
+          </br>
+          <p>Search by Tags</p>
+          <div class="tag-list">
+            {% for tag in tags %}
+             <a href="/tags/{{ tag }}" class="tag-default tag-pill">{{ tag }}</a>
+             {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- End the row & container divs -->
+    </div>
+  </div>
+
+  <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item {% if not pages.has_prev %} disabled {% endif %}">
+      <a class="page-link" href="./?page={{pages.prev_num}}">Previous</a>
+    </li>
+
+    {% for page in pages.iter_pages() %}
+    <li class="page-item {% if page == pages.page %} active {% endif %}"><a class="page-link" href="./?page={{ page }}">{{ page }}</a></li>
+    {% endfor %}
+    
+    
+    <li class="page-item {% if not pages.has_next %} disabled {% endif %}">
+      <a class="page-link" href="./?page={{pages.next_num}}">Next</a>
+    </li>
+  </ul>
+</nav>
+{% endblock %}    

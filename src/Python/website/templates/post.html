@@ -1,0 +1,134 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block head %}
+<h1>IRIS-FlaskBlog</h1>
+<p>View Post</p>
+{% endblock %} {% block content %}
+
+<div id="posts">
+  <div class="card border-dark">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <p class="form-label-font">{{post.user.username}} Post</p>
+      <div>
+        <span id="likes-count-{{post.id}}"> {{ post.likes|length }}</span>
+        {% if user.id in post.likes|map(attribute="author")|list %}
+        <i
+          class="fas fa-thumbs-up"
+          id="like-button-{{post.id}}"
+          onclick="like({{post.id}})"
+        ></i>
+        {% else %}
+        <i
+          class="far fa-thumbs-up"
+          id="like-button-{{post.id}}"
+          onclick="like({{post.id}})"
+        ></i>
+        {% endif %} {% if user.id == post.author %}
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-sm btn-danger dropdown-toggle"
+            data-toggle="dropdown"
+          ></button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/delete-post/{{post.id}}" class="dropdown-item">
+                Delete Post
+              </a>
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <ul class="tag-list">
+          {% for tag in post.tags %}
+          <li class="tag-default tag-pill tag-outline">{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <br />
+      <div class="collapse" id="comments-{{post.id}}">
+        <div class="card">
+          <div class="card-body" id="comments-expanded-{{post.id}}">
+            {% for comment in post.comments %}
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <a href="/posts/{{comment.user.username}}"
+                  >{{comment.user.username}}</a
+                >: {{comment.text}}
+              </div>
+              <div>
+                <small class="text-muted"> {{comment.date_created}}</small>
+                {% if user.id == comment.author or user.id == post.author %}
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-danger dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                  ></button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        href="/delete-comment/{{comment.id}}"
+                        class="dropdown-item"
+                        >Delete Post</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <p class="card-text">
+        {% if post.comments|length > 0 %}
+        <a data-toggle="collapse" href="#comments-{{post.id}}" role="button">
+          <small>View {{post.comments|length}} Comments</small>
+        </a>
+        {% else %}
+        <small class="text-muted">No Comments</small>
+        {% endif %}
+      </p>
+      <form
+        class="input-group mb-3"
+        method="POST"
+        action="/create-comment/{{post.id}}"
+      >
+        <input
+          type="text"
+          id="text"
+          name="text"
+          class="form-control"
+          placeholder="Comment something!"
+        />
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </form>
+    </div>
+    <div class="card-footer text-muted">{{post.date_created}}</div>
+  </div>
+  <br />
+</div>
+{% block footer %}
+<div align="center">
+  {% if user.id == post.author %}
+  <a href="/edit-post/{{post.id}}">
+    {% endif %}
+    <button
+      type="button" class="btn btn-primary" {% if  user.id != post.author %}    disabled   {% endif %}>
+      Edit Post
+    </button>
+    {% if user.id == post.author %} </a>{% endif %}
+    <a href="/index"><button type="button" class="btn btn-secondary">Back</button></a>
+</div>
+{% endblock %} 
+{% endblock %} 
+{% block script %}
+    <script  type="text/javascript"  src="{{ url_for('static', filename='post.js')}}"></script>
+{% endblock %}  
+
