@@ -11,7 +11,7 @@
       <div class="card">
         <h5 class="card-header form-label-font">Create Post</h5>
         <div class="card-body">
-          <form method="POST" id="myForm">
+          <form method="POST" id="myForm" onsubmit="return checktags()">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label class="form-label-font">Title</label>
@@ -48,7 +48,7 @@
                 <div class="wrapper">
                   <div class="content">                 
                   <ul id="tags_ul"><input type="text" class="form-label-font" name = "tags" id="tags" spellcheck="false"></ul>
-                  <p class="no-bottom-margin"><small>Press enter or add a comma after each tag</small></p>
+                  <p class="no-bottom-margin"><small>Press Enter to add a Tag</small></p>
                 </div>   
               </div>           
                </div>
@@ -80,11 +80,22 @@
 </div>
 {% endblock %}
 {% block script %}
-    <script
+<script>
+  function checktags() {
+    const ul = document.querySelector("#tags_ul")
+    let tag = ul.querySelectorAll("li")
+    if (tag.length === 0)
+     {
+        alert("Please enter altlease one tag first");
+        return false;
+    }
+  }
+  </script>
+   <script
       type="text/javascript"
       src="{{ url_for('static', filename='tags.js')}}"
-    ></script>
-    <script>
+   ></script>
+  <script>
        document.getElementById("tags").onkeypress = function(e) {
        var key = e.charCode || e.keyCode || 0;     
         if (e.keyCode == 13) {
