@@ -2,10 +2,10 @@
     // Allow SuperUser/SYS
     Do ##class(Security.Users).UnExpireUserPasswords("*")
     // Allow service callin for embbeded python
-    do ##class(Security.Services).Get("%Service_CallIn",.prop)
-    set prop("Enabled")=1
-    set prop("AutheEnabled")=48
-    do ##class(Security.Services).Modify("%Service_CallIn",.prop)
+    //do ##class(Security.Services).Get("%Service_CallIn",.prop)
+    //set prop("Enabled")=1
+    //set prop("AutheEnabled")=48
+    //do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
 
    
