@@ -65,20 +65,4 @@ In order to modify the Post, click on Edit Post from the view post page
 Click on Post User to list down all the posts related to users or click on a Tag to list all the related posts.
 ![userfeed](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/87e4036b-2bee-4e50-ba78-956a8226c84e)
 
-
-
-
-
-
-
-
-
-
-
-Remember that the scope of this project may vary based on your requirements and available resources. Break down the project into manageable tasks and milestones for easier development and tracking. Additionally, consider seeking guidance from experienced developers or mentors, especially if you are new to any of the technologies involved.
-
-Deliverables:
-The application will be available on OEX.
-	Documentation, DC article, readme.md and wiki for technical details.
-	Video tutorial with application demo and comments about its features.
-
+##Thanks
