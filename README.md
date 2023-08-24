@@ -14,6 +14,7 @@ IRIS-FlaskBlog Application is a real-world application that leverages Flask web 
 # Used Technologies
 Flask: A micro web framework for Python that allows you to build web applications quickly and efficiently.Conduit
 SQLAlchemy: An Object-Relational Mapping (ORM) library that provides a high-level, Pythonic interface for interacting with databases.
+SQLAlchemy-iris : 
 InterSystems IRIS: A high-performance, data platform that combines a powerful database with integration, analytics, and AI capabilities.
 
 # Installation
@@ -42,16 +43,17 @@ To run the application Navigate to http://localhost:4040
 
 #### Register a User
 To register a user, Click on Sign Up link
-![Sign-up](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/cddac1bb-88f7-49a0-ac05-4a31ac8cec7f)
+![image](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/acf3e68b-cf2d-4ce1-9997-b4b648ec845f)
 
 Once registered, the user will log in automatically, To sign Out click on the User Name link and then click on Sign out.
 In order to log in, click on Sign in link
-![Login](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/ea89e967-b753-4678-938f-18de9c187e7f)
+![image](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/047f88dd-db3d-45d3-ba57-d7d83a30e6d8)
 
 #### Create a post
 From the home page, click on Create a Post button to create a post. 
 Enter Title, Content, and Related Tags.
-![CreatePost](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/b362958a-ac92-4be0-9364-35769f08b775)
+![image](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/11734230-c27d-4f87-bf5e-56084ce62e61)
+
 
 #### View a post (Edit, Delete, Like, or add comments)
 Click on the title or on the content of the post in order to Edit or Delete a Post, or Like or add comments to the post.
@@ -65,4 +67,18 @@ In order to modify the Post, click on Edit Post from the view post page
 Click on Post User to list down all the posts related to users or click on a Tag to list all the related posts.
 ![userfeed](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/87e4036b-2bee-4e50-ba78-956a8226c84e)
 
-##Thanks
+## Navigate to management portal to view the tables
+Python SQLAlchemy creates below tables in the DB
+Users
+asdf
+asdf
+asdf
+asdf
+asdf
+asdf
+To view navigate to SQL 
+**Navigate**
+
+## Special Thanks to:
+Dmitry Maslennikov for sqlalchemy-iris liabrary (An InterSystems IRIS dialect for SQLAlchemy ) which was helpful to connect with IRIS
+
