@@ -7,12 +7,11 @@ from .myconfig import *
 db = SQLAlchemy()
 
 
-def create_app():
+def create_app(database_uri):
     app = Flask(__name__)
     app.config['SECRET_KEY'] = "iris-FlaskBlogKey"
     # Getting DB parameters from myconfig.py file
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'iris://'+DB_USER + \
-        ':'+DB_PASS+'@'+DB_URL+':'+DB_PORT+'/'+DB_NAMESPACE
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
     app.app_context().push()
 
     from .views import views
