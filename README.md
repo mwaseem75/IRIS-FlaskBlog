@@ -37,7 +37,38 @@ docker-compose up -d
 # Getting Started 
 ## Run the application
 To run the application Navigate to http://localhost:4040 
+#### Home Page
 ![image](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/a484538b-1fb7-435c-9254-25f1dc6b8c92)
+
+#### Register a User
+To register a user, Click on Sign Up link
+![Sign-up](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/cddac1bb-88f7-49a0-ac05-4a31ac8cec7f)
+
+Once registered, the user will log in automatically, To sign Out click on the User Name link and then click on Sign out.
+In order to log in, click on Sign in link
+![Login](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/ea89e967-b753-4678-938f-18de9c187e7f)
+
+#### Create a post
+From the home page, click on Create a Post button to create a post. 
+Enter Title, Content, and Related Tags.
+![CreatePost](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/b362958a-ac92-4be0-9364-35769f08b775)
+
+#### View a post (Edit, Delete, Like, or add comments)
+Click on the title or on the content of the post in order to Edit or Delete a Post, or Like or add comments to the post.
+![ViewPost](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/60c55817-90ef-45bc-9c57-11a9c55f061e)
+
+#### Edit post
+In order to modify the Post, click on Edit Post from the view post page 
+![editpost](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/dc6febb6-0a32-47ee-96c8-edc50b404fd2)
+
+#### List Posts based on User or Tags
+Click on Post User to list down all the posts related to users or click on a Tag to list all the related posts.
+![userfeed](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/87e4036b-2bee-4e50-ba78-956a8226c84e)
+
+
+
+
+
 
 
 
