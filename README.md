@@ -68,16 +68,17 @@ Click on Post User to list down all the posts related to users or click on a Tag
 ![userfeed](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/87e4036b-2bee-4e50-ba78-956a8226c84e)
 
 ## Navigate to management portal to view the tables
-Python SQLAlchemy creates below tables in the DB
-Users
-asdf
-asdf
-asdf
-asdf
-asdf
-asdf
-To view navigate to SQL 
-**Navigate**
+Below tables will be creatd by SQLALchemy
+* user : User Table
+* Post : To store Posts data
+* Tags : To Store Tags
+* tags_association : To store link between Posts and Tags
+* Comments: To save post comments by users
+* Like : To store likes details by users
+
+To view table details, navigate to http://localhost:52775/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=USER#
+![image](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/de303374-af23-40cc-874b-cad560ca1a87)
+
 
 ## Special Thanks to:
 Dmitry Maslennikov for sqlalchemy-iris liabrary (An InterSystems IRIS dialect for SQLAlchemy ) which was helpful to connect with IRIS
