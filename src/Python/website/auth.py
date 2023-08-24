@@ -6,7 +6,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint("auth", __name__)
 
-#Login 
+# Login
+
+
 @auth.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -26,7 +28,7 @@ def login():
     return render_template("login.html", user=current_user)
 
 
-#Register user
+# Register user
 @auth.route("/sign-up", methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -60,7 +62,44 @@ def sign_up():
 
     return render_template("signup.html", user=current_user)
 
-#Sign out
+# Change password
+
+
+@auth.route("/change-password", methods=['GET', 'POST'])
+@login_required
+def change_password():
+    if request.method == 'POST':
+        email = request.form.get("email")
+        old_password = request.form.get("old_password")
+        password1 = request.form.get("password1")
+        password2 = request.form.get("password2")
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, old_password):
+                if password1 != password2:
+                    flash('Password don\'t match!', category='error')
+                elif old_password == password1:
+                    flash('Old and New Password is same', category='error')
+                elif len(password1) < 6:
+                    flash('Password is too short', category='error')
+                else:
+                    user.password = generate_password_hash(
+                        password1, method='sha256')
+                    db.session.commit()
+                    login_user(user, remember=True)
+                    flash('Password changed successfully', category='error')
+                    return redirect(url_for('views.home'))
+            else:
+                flash('Old Password is not correct', category='error')
+        else:
+            flash('Email Id not found.', category='error')
+
+    return render_template("change_password.html", user=current_user)
+
+# Sign out
+
+
 @auth.route("/logout")
 @login_required
 def logout():

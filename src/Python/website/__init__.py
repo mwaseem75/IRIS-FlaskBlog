@@ -11,8 +11,6 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = "iris-FlaskBlogKey"
     # Getting DB parameters from myconfig.py file
-    print('iris://'+DB_USER+':'+DB_PASS+'@' +
-          DB_URL+':'+DB_PORT+'/'+DB_NAMESPACE)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'iris://'+DB_USER + \
         ':'+DB_PASS+'@'+DB_URL+':'+DB_PORT+'/'+DB_NAMESPACE
     app.app_context().push()
