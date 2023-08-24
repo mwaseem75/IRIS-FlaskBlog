@@ -13,7 +13,7 @@
         "internalPort": 52773
       },
       "links": {
-        "Climate Change Home": "http://localhost:4040",
+        "Application Home": "http://localhost:4040",
         "Management Portal": "http://localhost:52775/csp/sys/UtilHome.csp"
       },
       "active": true,
