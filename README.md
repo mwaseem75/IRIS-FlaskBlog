@@ -80,7 +80,8 @@ SQLALchemy will create below tables:
 * comments: To save post comments by users
 * like: To store likes details by users
 
-To view table details, navigate to http://localhost:52775/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=USER#
+To view table details, navigate to 
+[**http://localhost:52775/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=USER#**](http://localhost:52775/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=USER#)
 ![image](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/de303374-af23-40cc-874b-cad560ca1a87)
 
 
