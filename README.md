@@ -25,7 +25,6 @@ InterSystems IRIS: A high-performance, data platform that combines a powerful da
 
 ```
 git clone https://github.com/mwaseem75/IRIS-FlaskBlog.git
-
 ```
 
 2. Open a Docker terminal in this directory and run:
