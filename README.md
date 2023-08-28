@@ -40,7 +40,7 @@ docker-compose up -d
 ```
 # Getting Started 
 ## Run the application
-To run the application Navigate to
+To run the application Navigate to  [http://localhost:4040]([http://localhost:4040])
 #### Home Page
 ![image](https://github.com/mwaseem75/IRIS-FlaskBlog/assets/18219467/a484538b-1fb7-435c-9254-25f1dc6b8c92)
 
