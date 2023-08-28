@@ -70,6 +70,7 @@ Click on Post User to list down all the posts related to users or click on a Tag
 
 ## Application database
 SQLALchemy will create below tables:
+
 * user: To store User information
 * post: To store Posts related data
 * tags: To store Tags against the post
