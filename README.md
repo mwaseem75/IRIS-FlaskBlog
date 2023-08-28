@@ -14,8 +14,11 @@ The application contains user registration and authentication with the help of F
 
 # Used Technologies
 Flask: A micro web framework for Python that allows you to build web applications quickly and efficiently.Conduit
+
 SQLAlchemy: An Object-Relational Mapping (ORM) library that provides a high-level, Pythonic interface for interacting with databases.
+
 InterSystems IRIS: A high-performance, data platform that combines a powerful database with integration, analytics, and AI capabilities.
+
 
 # Installation
 1. Clone/git pull the repo into any local directory
