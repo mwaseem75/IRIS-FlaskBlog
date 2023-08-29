@@ -13,7 +13,7 @@ The application contains user registration and authentication with the help of F
 * Search based on the user and based on the tags
 
 # Used Technologies
-Flask: A micro web framework for Python that allows you to build web applications quickly and efficiently.Conduit
+Flask: A micro web framework for Python that allows you to build web applications quickly and efficiently.Conduit.
 
 SQLAlchemy: An Object-Relational Mapping (ORM) library that provides a high-level, Pythonic interface for interacting with databases.
 
