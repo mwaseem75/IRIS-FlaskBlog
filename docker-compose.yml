@@ -1,15 +1,26 @@
 version: '3.6'
 services:
   iris:
-    build:
-      context: ./
-      dockerfile : Dockerfile
-      args:
-        - IRIS_PASSWORD=${IRIS_PASSWORD:-SYS}
-    volumes:
-      - ./:/irisdev/app/
+    image: intersystemsdc/iris-community
+    environment:
+      - IRIS_USERNAME=${IRIS_USERNAME:-_SYSTEM}
+      - IRIS_PASSWORD=${IRIS_PASSWORD:-SYS}
     ports:
     - 52775:52773
     - 51776:1972
-    - 4040:4040
-    command: -a "sh /opt/irisapp/server_start.sh"
+    healthcheck:
+      test: /irisHealth.sh
+      interval: 5s
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - 4040:4040
+    depends_on:
+      iris:
+        condition: service_healthy
+    command:
+      - --reload
