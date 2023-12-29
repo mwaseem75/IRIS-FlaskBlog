@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Document name="iris-flaskblog.ZPM">
+<Module>
+ <Name>iris-flaskblog</Name>
+  <Version>0.0.1</Version>
+  <Description>Realworld Application using Flask, SQLAlchemy, and InterSystems IRIS</Description>
+  <Keywords>flask sqlalchemy</Keywords>
+  <Packaging>module</Packaging>
+  <SourcesRoot>.</SourcesRoot>
+  <Resource Name="module-init.CLS" />
+  <FileCopy Name="website/" Target="${libdir}/${packagename}/website/"/>
+  <FileCopy Name="app.py" Target="${libdir}/${packagename}/"/>
+</Module>
+</Document>
+</Export>
