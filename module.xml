@@ -19,6 +19,20 @@
     <Arg>SYS</Arg>
    </Invoke>
   </Invokes>
+ <AfterInstallMessage>
+&#13; The project is installed. Go to directory
+&#13;    cd "_$G(tPath)
+&#13; set the environment variable if necessary
+&#13;    python3 -m venv env
+&#13;    source env/bin/activate # for Linux
+&#13;    source env/Scripts/activate # for Windows
+&#13;    pip3 install -r requirements.txt
+&#13; if necessary, correct the IRIS access parameters in the file "_$G(tPath)_"/website/myconfig.py
+&#13;  run the application
+&#13;   python3 app.py
+
+&#13; ${webroot}apptoolsrest/a/info
+</AfterInstallMessage>
 </Module>
 </Document>
 </Export>
