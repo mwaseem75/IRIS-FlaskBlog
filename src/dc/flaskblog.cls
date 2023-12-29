@@ -2,9 +2,9 @@ Class dc.flaskblog [ Abstract ]
 {
 
 /// init
-ClassMethod init(namespace, tPath, tName, tDescription = "") As %Status
+ClassMethod init(tPath, tName, tDescription = "") As %Status
 {
- write "Init ============="
+ write "Init ============= "_$G(tPath)
  quit $$$OK
 }
 

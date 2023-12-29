@@ -11,6 +11,14 @@
   <Resource Name="dc.flaskblog.CLS" />
   <FileCopy Name="website/" Target="${libdir}/${packagename}/website/"/>
   <FileCopy Name="app.py" Target="${libdir}/${packagename}/"/>
+  <FileCopy Name="requirements.txt" Target="${libdir}/${packagename}/"/>
+  <Invokes>
+   <Invoke Class="dc.flaskblog" Method="init">
+    <Arg>${libdir}/${packagename}</Arg>
+    <Arg>SuperUser</Arg>
+    <Arg>SYS</Arg>
+   </Invoke>
+  </Invokes>
 </Module>
 </Document>
 </Export>
