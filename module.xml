@@ -7,19 +7,19 @@
   <Description>Realworld Application using Flask, SQLAlchemy, and InterSystems IRIS</Description>
   <Keywords>flask sqlalchemy</Keywords>
   <Packaging>module</Packaging>
-  <FileCopy Name="website/" Target="${libdir}/${packagename}/website/"/>
-  <FileCopy Name="app.py" Target="${libdir}/${packagename}/"/>
-  <FileCopy Name="requirements.txt" Target="${libdir}/${packagename}/"/>
+  <FileCopy Name="website/" Target="${libdir}${packagename}/website/"/>
+  <FileCopy Name="app.py" Target="${libdir}${packagename}/"/>
+  <FileCopy Name="requirements.txt" Target="${libdir}${packagename}/"/>
  <AfterInstallMessage>
 &#13; The project is installed. Go to directory
-&#13;    cd ${libdir}/${packagename}
+&#13;    cd ${libdir}${packagename}
 &#13; set the environment variable if necessary
 &#13;    python3 -m venv env
 &#13;    source env/bin/activate # for Linux
 &#13;    source env/Scripts/activate # for Windows
 &#13;    pip3 install -r requirements.txt
-&#13; if necessary, correct the IRIS access parameters in the file ${libdir}/${packagename}/website/myconfig.py
-&#13;  run the application
+&#13; if necessary, correct the IRIS access parameters in the file ${libdir}${packagename}/website/myconfig.py
+&#13; run the application
 &#13;   python3 app.py
 </AfterInstallMessage>
 </Module>
