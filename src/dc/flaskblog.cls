@@ -1,4 +1,4 @@
-Class module-init [ Abstract ]
+Class dc.flaskblog [ Abstract ]
 {
 
 /// init

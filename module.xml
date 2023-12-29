@@ -7,8 +7,8 @@
   <Description>Realworld Application using Flask, SQLAlchemy, and InterSystems IRIS</Description>
   <Keywords>flask sqlalchemy</Keywords>
   <Packaging>module</Packaging>
-  <SourcesRoot>.</SourcesRoot>
-  <Resource Name="module-init.CLS" />
+  <SourcesRoot>src.</SourcesRoot>
+  <Resource Name="dc.flaskblog.CLS" />
   <FileCopy Name="website/" Target="${libdir}/${packagename}/website/"/>
   <FileCopy Name="app.py" Target="${libdir}/${packagename}/"/>
 </Module>
